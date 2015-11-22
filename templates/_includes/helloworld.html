@@ -1,0 +1,31 @@
+<h2>Hello: "{{:hello}}"</h2>
+<button id="addButton">Add</button>
+<hr>
+
+<div id="container"> 
+	
+</div>
+
+<script id="peopleTmpl" type="text/x-jsrender">
+	<ul>
+		{{for people}}
+			<li> Name: {{:name}} </li>
+		{{/for}}
+	</ul>
+</script>
+
+<script>
+	var data = {
+		people: [
+			{name: "Jim"}, 
+			{name: "Pedro"}
+		] 
+	};
+	$(document).ready(function(){
+		var tmpl = $.templates("#peopleTmpl");
+		var html = tmpl.render(data);
+		console.log(html);
+		$("#container").html(html);
+	});
+
+</script>
