@@ -2,29 +2,42 @@
 <button id="addButton">Add</button>
 <hr>
 
+<hr>
+Client:<br>
 <div id="container"> 
-	
+
 </div>
 
 <script id="peopleTmpl" type="text/x-jsrender">
 	<ul>
-		{{for people}}
+		{{for morePeople}}
 			<li> Name: {{:name}} </li>
 		{{/for}}
 	</ul>
 </script>
-
+<hr>
+Server:<br>
+<ul>
+	{{for people}}
+		<li> Name: {{:name}} </li>
+	{{/for}}
+</ul>
+	
+	
 <script>
-	var data = {
-		people: [
-			{name: "Jim"}, 
-			{name: "Pedro"}
-		] 
-	};
+
 	$(document).ready(function(){
+		
+		var moreData = {
+			morePeople: [
+				{name: "Jim Client"}, 
+				{name: "Pedro Client"}
+			] 
+		};
+	
 		var tmpl = $.templates("#peopleTmpl");
-		var html = tmpl.render(data);
-		console.log(html);
+		var html = tmpl.render(moreData);
+		console.log("moreData",moreData);
 		$("#container").html(html);
 	});
 

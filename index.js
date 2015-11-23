@@ -47,7 +47,12 @@ server.register( vision , function (err) {
     path: 'templates'
   });
 
-  var context = { hello: "world!" };
+  var data = {
+		people: [
+			{name: "Jim"}, 
+			{name: "Pedro"}
+		] 
+	};
 
 ////////////////////////////////////////////////////////////////
 // Render layout.html template as 'home page' using Hapi
@@ -56,7 +61,8 @@ server.register( vision , function (err) {
     path: '/',
     handler: function (request, reply) {
       // Render helloworld.html template
-      return reply.view('layout', context);
+      console.log("context:",data);
+      return reply.view('layout', data);
     }
   });
 });
