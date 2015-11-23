@@ -1,20 +1,13 @@
 <h2>Hello: "{{:hello}}"</h2>
 <button id="addButton">Add</button>
-<hr>
 
 <hr>
-Client:<br>
-<div id="container"> 
 
-</div>
+Client:
+<br>
+<div id="container"> </div>
 
-<script id="peopleTmpl" type="text/x-jsrender">
-	<ul>
-		{{for morePeople}}
-			<li> Name: {{:name}} </li>
-		{{/for}}
-	</ul>
-</script>
+
 <hr>
 Server:<br>
 <ul>
@@ -35,7 +28,7 @@ Server:<br>
 			] 
 		};
 	
-		var tmpl = $.templates("#peopleTmpl");
+		var tmpl = $.templates("./templates/_includes/clientTemplate.html");
 		var html = tmpl.render(moreData);
 		console.log("moreData",moreData);
 		$("#container").html(html);
